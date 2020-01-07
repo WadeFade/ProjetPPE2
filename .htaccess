@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteBase /PPE2-EPSI-2019/
+
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php [QSA,L]
+
