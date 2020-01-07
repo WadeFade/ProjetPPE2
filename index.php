@@ -14,6 +14,7 @@
 	switch ($params[1]) {
 		case 'accueil' :
 			$site->titre='Accueil';
+			$site->global=$controleur->retourne_caroussel();
 			$site-> right_sidebar=$site->rempli_right_sidebar();
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
