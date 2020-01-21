@@ -15,7 +15,7 @@ Class prefix bootstrap	.col-		.col-sm-	.col-md-	.col-lg-	.col-xl-	.col-xxl-	.col
 */
 :root
 {
---couleurDeSection:#FFF;
+	--couleurDeSection:#FFF;
 }
 
 
@@ -32,13 +32,11 @@ html {font-size:80%;}
 section {
 	color: #363B29;
 	background: var(--couleurDeSection);
-display:table-cell;	
-
-
-height:100%;
-overflow:auto;
-
+	display:table-cell;
+	height:100%;
+	overflow:auto;
 }
+
 section a {
 	color: #332510;
 }
@@ -48,15 +46,36 @@ section a:hover, section a:focus {
 section strong {
 	color: #181A12;
 }
+.StyleArticle{
+	height: 150px;
+}
+.ArticleNombre{
+
+}
+.BarBoutton{
+	margin-bottom: 0px;
+	padding: 10px;
+	display: flex;
+	justify-content: left;
+	background-color: #FFF;
+	width: 100%;
+	color: black;
+}
+.BarBoutton a{
+	color: black;
+}
+.BarBoutton i{
+	color: black;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-	
+
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-	
+
 }
 
 /* Large devices (desktops, 992px and up)*/
@@ -66,19 +85,19 @@ section strong {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-.global {
-	max-width: 1400px; 
-	margin: 0 auto; 
-}	
+	.global {
+		max-width: 1400px;
+		margin: 0 auto;
+	}
 }
 
 /* xxl devices (large desktops, 1900px and up)*/
 @media (min-width: 1900px) {
-	
+
 }
 /* xxxl devices (large desktops, 3000px and up)*/
 @media (min-width: 3000px) {
-	
+
 }
 
 

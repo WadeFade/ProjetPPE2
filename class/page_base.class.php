@@ -89,6 +89,12 @@ class page_base {
 				
 		}
 	}
+	/******************************Gestion du fontawesome*******************************************/
+	/* Insertion de fontawesome */
+    public function affiche_fontAwesome(){
+        echo "<script src='https://kit.fontawesome.com/474f36629d.js' crossorigin='anonymous'></script>";
+    }
+
 	/******************************Gestion des styles **********************************************/
 	/* Insertion des feuilles de style */
 	private function affiche_style() {
@@ -232,6 +238,7 @@ class page_base {
 					<?php $this->affiche_keyword(); ?>
 					<?php $this->affiche_javascript(); ?>
 					<?php $this->affiche_style(); ?>
+                    <?php $this->affiche_fontAwesome(); ?>
 				</head>
 				<body>
 				<div class="global">

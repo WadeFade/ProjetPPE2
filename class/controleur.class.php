@@ -32,12 +32,14 @@ class controleur {
 			// parcourir chaque ligne sélectionnée
 			{
 		
-				$retour = $retour . '<div class="card text-white bg-dark m-2" ><div class="card-body">
+				$retour = $retour . '<div class="card text-white bg-dark m-2 ArticleNombre" ><div class="StyleArticle card-body">
 				<article>
 					<h3 class="card-title">'.$row->h3.'</h3>
 					<p class="card-text">'.$row->corps.'</p>
 				</article>
-				</div></div>';
+				</div>
+				<div class="BarBoutton"><a href="#"><i class="fas fa-plus"></i> Read More</a></div>
+				</div>';
 			}
 		$retour = $retour .'</section>';
 		return $retour;
