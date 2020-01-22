@@ -169,6 +169,39 @@ class controleur {
 </div>';
             return $retour;
 		}
-}
 
+		public function retourne_tableau() {
+			$retour='<table class="table table-striped table-dark" id="tableauDep">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Département</th>
+      <th scope="col">Région</th>
+     </tr>
+  </thead>';
+$result = $this->vpdo->liste_dep();
+
+if ($result != false) {
+	$retour .= '<tbody>';
+	foreach	($result as $ligne){
+			$retour .= "<tr>
+	<th scope=\"row\">$ligne[0]</th>
+	<td>$ligne[1]</td>
+	<td>$ligne[2]</td>
+	</tr>";
+			}
+	$retour .= '</tbody>';
+		}
+	$retour .= '</table>';
+return $retour;
+	}
+
+
+
+
+}
 ?>
+
+
+
+

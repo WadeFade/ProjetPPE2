@@ -36,6 +36,15 @@
 			session_destroy();
 			echo '<script>document.location.href="Accueil"; </script>';
 			break;
+        case 'departement' :
+            $site->titre='Département';
+            $site->js='jquery.dataTables.min';
+            $site->js='dataTables.bootstrap4.min';
+            $site->js='departement';
+            $site->css='dataTables.bootstrap4.min';
+            $site->global=$controleur->retourne_tableau();
+            $site->affiche();
+            break;
 		default: 
 			$site->titre='Accueil';
 			$site-> right_sidebar=$site->rempli_right_sidebar();
