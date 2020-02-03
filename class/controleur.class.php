@@ -24,22 +24,34 @@ class controleur {
 	}
 	public function retourne_article($title)
 	{
-		
+		$i=0;
 		$retour='<section>';
 		$result = $this->vpdo->liste_article($title);
 		if ($result != false) {
 			while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
 			// parcourir chaque ligne sélectionnée
 			{
-		
-				$retour = $retour . '<div class="card text-white bg-dark m-2 ArticleNombre" ><div class="StyleArticle card-body">
-				<article>
-					<h3 class="card-title">'.$row->h3.'</h3>
-					<p class="card-text">'.$row->corps.'</p>
-				</article>
-				</div>
-				<div class="BarBoutton"><a href="#"><i class="fas fa-plus"></i> Read More</a></div>
+				if($row->date_deb != null && $row->date_fin != null){
+					$dateTimeDeb=new DateTime($row->date_deb);
+					$dateTimeFin=new DateTime($row->date_fin);
+					$dateTimeNow=new DateTime("now");
+					if($row->publie == 1){
+						if($dateTimeDeb<=$dateTimeNow && $dateTimeFin>=$dateTimeNow){
+							$retour = $retour . '<div class="card text-white bg-dark m-2 ArticleNombre" >
+						<div class="StyleArticle card-body">
+							<article>
+								<h1 style="font-size: 0.8em">titre : '.$row->h1.'</h1>
+								<aside style="font-size: 0.8em">Nom : '.$row->nom.' / Prenom : '.$row->prenom.' / Date redaction : '.$row->date_redaction.'</aside>
+								<h3 class="card-title">'.$row->h3.'</h3>
+								<p class="card-text">'.$row->corps.'</p>
+							</article>
+						</div>
+					<div class="BarBoutton"><button onclick="collapse('.$i.')"><i class="fas fa-plus"></i> Read More</button></div>
 				</div>';
+							$i++;
+						}
+					}
+				}
 			}
 		$retour = $retour .'</section>';
 		return $retour;

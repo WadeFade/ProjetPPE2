@@ -1,16 +1,6 @@
 $( document ).ready(function() {
 $("#myModal").modal();
-
-
-	
-
 });
-
-
-
-
-
-
 
 function hdModalRetour(){
 	$("#ModalRetour").modal("hide");

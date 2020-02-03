@@ -13,6 +13,7 @@
 	switch ($params[1]) {
 		case 'accueil' :
 			$site->titre='Accueil';
+			$site->js='collapse';
 			$site-> right_sidebar=$site->rempli_right_sidebar();
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
@@ -40,6 +41,5 @@
 			$site-> left_sidebar='<img src="'.$site->path.'/image/erreur-404.png" alt="Erreur de liens">';
 			$site->affiche();
 			break;
-	}	
-	
+	}
 ?>

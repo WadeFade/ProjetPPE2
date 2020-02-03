@@ -95,6 +95,12 @@ class page_base {
         echo "<script src='https://kit.fontawesome.com/474f36629d.js' crossorigin='anonymous'></script>";
     }
 
+    /******************************Gestion du fontawesome*******************************************/
+    /* Insertion de collapse */
+    public function javascriptCollapse(){
+        echo "<script src='../js/collapse.js' crossorigin='anonymous'></script>";
+    }
+
 	/******************************Gestion des styles **********************************************/
 	/* Insertion des feuilles de style */
 	private function affiche_style() {
@@ -239,6 +245,7 @@ class page_base {
 					<?php $this->affiche_javascript(); ?>
 					<?php $this->affiche_style(); ?>
                     <?php $this->affiche_fontAwesome(); ?>
+                    <?php $this->javascriptCollapse(); ?>
 				</head>
 				<body>
 				<div class="global">

@@ -47,17 +47,15 @@ section strong {
 	color: #181A12;
 }
 .StyleArticle{
-	height: 150px;
+	max-height: 10em;
 }
-.ArticleNombre{
 
-}
 .BarBoutton{
 	margin-bottom: 0px;
 	padding: 10px;
 	display: flex;
 	justify-content: left;
-	background-color: #FFF;
+	background: rgba(52, 58, 64, 1);
 	width: 100%;
 	color: black;
 }
@@ -66,6 +64,14 @@ section strong {
 }
 .BarBoutton i{
 	color: black;
+}
+
+.Bouton{
+	background: #363B29;
+}
+.h1Article{
+	color: blue;
+	font-size: 1rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -99,5 +105,6 @@ section strong {
 @media (min-width: 3000px) {
 
 }
+
 
 
