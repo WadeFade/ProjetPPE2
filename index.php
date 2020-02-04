@@ -30,6 +30,14 @@
 			$site-> left_sidebar=$controleur->retourne_modal_message();
 			$site->affiche();
 			break;
+        case 'nature':
+            $site->titre='Nature';
+            $site->afficheNature();
+            break;
+        case '':
+            $site->titre='Galerie';
+            $site->afficheGalerie();
+            break;
 		case 'deconnexion' :
 			$_SESSION=array();
 			session_destroy();

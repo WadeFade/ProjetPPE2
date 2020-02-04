@@ -146,6 +146,8 @@ class page_base {
 		echo '
 				<ul class="navbar-nav">
 					<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Accueil" >Accueil </a></li>
+					<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Nature" >Nature & Environnement </a></li>
+					<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Galerie" >Galerie </a></li>
 				</ul>';
 	}
 	protected function affiche_menu_connexion() {
@@ -226,6 +228,23 @@ class page_base {
 		';
 	}
 
+	/******************************************* Affichage  ***************************************/
+    private function affiche_xml($lien){
+        $context  = stream_context_create(array('https' => array('header' => 'Accept: application/xml')));
+        $url = $lien;
+        $xml = file_get_contents($url, false, $context);
+        $xml = simplexml_load_string($xml);
+        echo "<h1 style='font-size: 1.2em'>".$xml->channel[0]->title[0]."</h1>";
+        echo "<div class='card text-white bg-dark m-2 d-flex flex-wrap flex-row'>";
+        for($i=0;$i<9;$i++){
+            echo "<div class='card-body p-1 m-1' style='width: 45%'>";
+            echo "<h3 class='card-title'>".$xml->channel[0]->item[$i]->title[0]."</h3>";
+            echo "<a href='".$xml->channel[0]->item[$i]->description[0]."'>Lien</a>";
+            echo "<div class='card-text'>".$xml->channel[0]->item[$i]->description[0]. "</div>";
+            echo "<div class='d-flex justify-content-end'><img class='card-img-bottom' src='".$xml->channel[0]->item[$i]->enclosure[0]['url']."' alt='image'></div></div>";
+        }
+        echo "</div>";
+    }
 	
 	/********************************************* Fonction permettant l'affichage de la page ****************/
 
@@ -236,6 +255,7 @@ class page_base {
 			<!DOCCTYPE html>
 			<html lang='fr'>
 				<head>
+                    <a href=""></a>
 					<title><?php echo $this->titre; ?></title>
 					<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 					<meta name="description" content="<?php echo $this->metadescription; ?>" />
@@ -255,7 +275,7 @@ class page_base {
 						<?php $this->affiche_menu(); ?>
 						<?php $this->affiche_menu_connexion(); ?>
 						<?php $this->affiche_footer_menu(); ?>
-						
+
   						<div style="clear:both;">
     						<div style="float:left;width:75%;">
      							<?php echo $this->left_sidebar; ?>
@@ -272,6 +292,78 @@ class page_base {
 			</html>
 		<?php
 	}
+    public function afficheNature() {
+
+
+        ?>
+        <!DOCCTYPE html>
+        <html lang='fr'>
+        <head>
+            <title><?php echo $this->titre; ?></title>
+            <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+            <meta name="description" content="<?php echo $this->metadescription; ?>" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <?php $this->affiche_keyword(); ?>
+            <?php $this->affiche_javascript(); ?>
+            <?php $this->affiche_style(); ?>
+            <?php $this->affiche_fontAwesome(); ?>
+        </head>
+        <body>
+        <div class="global">
+
+            <?php $this->affiche_entete(); ?>
+            <?php $this->affiche_entete_menu(); ?>
+            <?php $this->affiche_menu(); ?>
+            <?php $this->affiche_menu_connexion(); ?>
+            <?php $this->affiche_footer_menu(); ?>
+
+            <?php $this->affiche_xml('https://www.sciencesetavenir.fr/nature-environnement/rss.xml'); ?>
+            <?php $this->affiche_xml('https://www.lemonde.fr/planete/rss_full.xml'); ?>
+            <div style="clear:both;">
+                <?php $this->affiche_footer(); ?>
+            </div>
+        </div>
+        </body>
+        </html>
+        <?php
+    }
+    public function afficheGalerie() {
+
+
+        ?>
+        <!DOCCTYPE html>
+        <html lang='fr'>
+        <head>
+            <title><?php echo $this->titre; ?></title>
+            <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+            <meta name="description" content="<?php echo $this->metadescription; ?>" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <?php $this->affiche_keyword(); ?>
+            <?php $this->affiche_javascript(); ?>
+            <?php $this->affiche_style(); ?>
+            <?php $this->affiche_fontAwesome(); ?>
+        </head>
+        <body>
+        <div class="global">
+
+            <?php $this->affiche_entete(); ?>
+            <?php $this->affiche_entete_menu(); ?>
+            <?php $this->affiche_menu(); ?>
+            <?php $this->affiche_menu_connexion(); ?>
+            <?php $this->affiche_footer_menu(); ?>
+
+<!--            todo affiche galerie -->
+
+            <div style="clear:both;">
+                <?php $this->affiche_footer(); ?>
+            </div>
+        </div>
+        </body>
+        </html>
+        <?php
+    }
 
 }
 
