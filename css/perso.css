@@ -74,7 +74,9 @@ section strong {
 	font-size: 1rem;
 }
 
-
+.ImageGalerie{
+	transition: all ease .5s;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
