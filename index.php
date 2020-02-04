@@ -34,7 +34,7 @@
             $site->titre='Nature';
             $site->afficheNature();
             break;
-        case '':
+        case 'galerie':
             $site->titre='Galerie';
             $site->afficheGalerie();
             break;

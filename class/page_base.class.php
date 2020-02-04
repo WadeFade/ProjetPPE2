@@ -245,7 +245,27 @@ class page_base {
         }
         echo "</div>";
     }
-	
+
+    /******************************************* Images *******************************************/
+    private function affiche_image(){
+        echo "<section class='d-flex flex-row flex-wrap justify-content-center'>
+<article class='d-flex m-3' style='width: 30%'><div class='w-100 h-100 bg-secondary align-items-center justify-content-center'>Description</div></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/Bassin-dArcachon.jpg' alt='Bassin d\"arcachon'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/Bonifacio.jpg' alt='Bonifacio'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/camargue.jpg' alt='camargue'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/camargue1.jpg' alt='camargue1'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/carcassonne.jpg' alt='carcassonne'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/chateau-de-chambord.jpg' alt='chateau de chambord'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/chateau-de-chenonceau.jpg' alt='chateau de chenonceau'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/Cirque-de-gavarnie.jpg' alt='cirque de gavarnie'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/Gorges-du-Tarn.jpg' alt='gorge du tarn'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/gravures-rupestres-vallee-des-merveilles-region-mont-bego.jpg' alt='gravures rupestres vallee des merveilles region mont bego'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/Mont-saint-michel.jpg' alt='mont saint michel'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/Mont-Saint-Michel_vu_du_ciel.jpg' alt='mont saint michel vu du ciel'></article>
+<article class='d-flex m-3' style='width: 30%'><img class='w-100' src='image/france/IMAGES%20%20RES/Orgues_ille_sur_tet.jpg' alt='orgues ille sur tet'></article>
+</section>
+";
+    }
 	/********************************************* Fonction permettant l'affichage de la page ****************/
 
 	public function affiche() {
@@ -329,8 +349,6 @@ class page_base {
         <?php
     }
     public function afficheGalerie() {
-
-
         ?>
         <!DOCCTYPE html>
         <html lang='fr'>
@@ -344,6 +362,7 @@ class page_base {
             <?php $this->affiche_javascript(); ?>
             <?php $this->affiche_style(); ?>
             <?php $this->affiche_fontAwesome(); ?>
+            <?php $this->affiche_ ?>
         </head>
         <body>
         <div class="global">
@@ -354,7 +373,7 @@ class page_base {
             <?php $this->affiche_menu_connexion(); ?>
             <?php $this->affiche_footer_menu(); ?>
 
-<!--            todo affiche galerie -->
+            <?php $this->affiche_image(); ?>
 
             <div style="clear:both;">
                 <?php $this->affiche_footer(); ?>
@@ -364,7 +383,6 @@ class page_base {
         </html>
         <?php
     }
-
 }
 
 ?>
