@@ -13,10 +13,10 @@ XXXl >=3000
 Max container width		0px 		576px		768px		992px		1200px		1900px		3000px
 Class prefix bootstrap	.col-		.col-sm-	.col-md-	.col-lg-	.col-xl-	.col-xxl-	.col-xxxl
 */
-:root {
-    --couleurDeSection: #FFF;
-}
 
+:root
+{
+	--couleurDeSection:#FFF;
 
 /* Extra small devices (portrait phones, less than 576px) and all if not redefine*/
 .row {
@@ -52,14 +52,11 @@ html {
 }
 
 section {
-    color: #363B29;
-    background: var(--couleurDeSection);
-    display: table-cell;
-
-
-    height: 100%;
-    overflow: auto;
-
+	color: #363B29;
+	background: var(--couleurDeSection);
+	display:table-cell;
+	height:100%;
+	overflow:auto;
 }
 
 section a {
@@ -72,6 +69,37 @@ section a:hover, section a:focus {
 
 section strong {
     color: #181A12;
+}
+.StyleArticle{
+	max-height: 10em;
+}
+
+.BarBoutton{
+	margin-bottom: 0px;
+	padding: 10px;
+	display: flex;
+	justify-content: left;
+	background: rgba(52, 58, 64, 1);
+	width: 100%;
+	color: black;
+}
+.BarBoutton a{
+	color: black;
+}
+.BarBoutton i{
+	color: black;
+}
+
+.Bouton{
+	background: #363B29;
+}
+.h1Article{
+	color: blue;
+	font-size: 1rem;
+}
+
+.ImageGalerie{
+	transition: all ease .5s;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -91,10 +119,11 @@ section strong {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-    .global {
-        max-width: 1400px;
-        margin: 0 auto;
-    }
+
+	.global {
+		max-width: 1400px;
+		margin: 0 auto;
+	}
 }
 
 /* xxl devices (large desktops, 1900px and up)*/
@@ -106,5 +135,3 @@ section strong {
 @media (min-width: 3000px) {
 
 }
-
-

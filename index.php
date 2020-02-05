@@ -1,6 +1,5 @@
 <?php
 	session_start();
-//
 	include_once('class/autoload.php');
 	$site = new page_base();
 	$controleur=new controleur();
@@ -14,7 +13,9 @@
 	switch ($params[1]) {
 		case 'accueil' :
 			$site->titre='Accueil';
+			$site->js='collapse';
 			$site->global=$controleur->retourne_caroussel();
+
 			$site-> right_sidebar=$site->rempli_right_sidebar();
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
@@ -31,6 +32,17 @@
 			$site-> left_sidebar=$controleur->retourne_modal_message();
 			$site->affiche();
 			break;
+        case 'nature':
+            $site->titre='Nature';
+            $site-> middle_sidebar=$controleur->retourne_xml('https://www.sciencesetavenir.fr/nature-environnement/rss.xml');
+            $site-> middle_sidebar=$controleur->retourne_xml('https://www.lemonde.fr/planete/rss_full.xml');
+            $site->afficheBis();
+            break;
+        case 'galerie':
+            $site->titre='Galerie';
+            $site-> middle_sidebar=$controleur->retourne_image();
+            $site->afficheBis();
+            break;
 		case 'deconnexion' :
 			$_SESSION=array();
 			session_destroy();
@@ -51,6 +63,5 @@
 			$site-> left_sidebar='<img src="'.$site->path.'/image/erreur-404.png" alt="Erreur de liens">';
 			$site->affiche();
 			break;
-	}	
-	
+	}
 ?>
