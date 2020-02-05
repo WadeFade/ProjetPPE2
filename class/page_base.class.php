@@ -6,6 +6,7 @@ class page_base
     protected $left_sidebar;
     protected $middle_sidebar;
     protected $titre;
+    protected $global;
     protected $js = array('jquery-3.4.1.min', 'bootstrap.min');
     protected $css = array('bootstrap.min', 'perso');
     protected $page;
@@ -53,6 +54,11 @@ class page_base
             case 'right_sidebar' :
             {
                 $this->right_sidebar = $this->right_sidebar . $valeur;
+                break;
+            }
+            case 'global' :
+            {
+                $this->global = $this->global . $valeur;
                 break;
             }
             case 'left_sidebar' :
@@ -118,7 +124,6 @@ class page_base
     {
         echo "<script src='../js/collapse.js' crossorigin='anonymous'></script>";
     }
-
     /******************************Gestion des styles **********************************************/
     /* Insertion des feuilles de style */
     private function affiche_style()
@@ -174,6 +179,7 @@ class page_base
 					<li class="nav-item active"><a class="nav-link"   href="' . $this->path . '/Accueil" >Accueil </a></li>
 					<li class="nav-item active"><a class="nav-link"   href="' . $this->path . '/Nature" >Nature & Environnement </a></li>
 					<li class="nav-item active"><a class="nav-link"   href="' . $this->path . '/Galerie" >Galerie </a></li>
+					<li class="nav-item active"><a class="nav-link"   href="' . $this->path . '/Departement" >Département </a></li>
 				</ul>';
     }
 
@@ -260,50 +266,7 @@ class page_base
     }
 
     /********************************************* Fonction permettant l'affichage de la page ****************/
-
-    public function affiche()
-    {
-        ?>
-        <!DOCCTYPE html>
-        <html lang='fr'>
-        <head>
-            <a href=""></a>
-            <title><?php echo $this->titre; ?></title>
-            <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-            <meta name="description" content="<?php echo $this->metadescription; ?>"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-            <?php $this->affiche_keyword(); ?>
-            <?php $this->affiche_javascript(); ?>
-            <?php $this->affiche_style(); ?>
-            <?php $this->affiche_fontAwesome(); ?>
-            <?php $this->javascriptCollapse(); ?>
-        </head>
-        <body>
-        <div class="global">
-
-            <?php $this->affiche_entete(); ?>
-            <?php $this->affiche_entete_menu(); ?>
-            <?php $this->affiche_menu(); ?>
-            <?php $this->affiche_menu_connexion(); ?>
-            <?php $this->affiche_footer_menu(); ?>
-
-            <div style="clear:both;">
-                <div style="float:left;width:75%;">
-                    <?php echo $this->left_sidebar; ?>
-                </div>
-                <div style="float:left;width:25%;">
-                    <?php echo $this->right_sidebar; ?>
-                </div>
-            </div>
-            <div style="clear:both;">
-                <?php $this->affiche_footer(); ?>
-            </div>
-        </div>
-        </body>
-        </html>
-        <?php
-    }
+    // todo Changer affichage, passer avec global
     public function afficheBis()
     {
         ?>
@@ -330,8 +293,7 @@ class page_base
             <?php $this->affiche_menu(); ?>
             <?php $this->affiche_menu_connexion(); ?>
             <?php $this->affiche_footer_menu(); ?>
-
-            <div style="clear:both;">
+          <div style="clear:both;">
                 <div style="float:left;width:100%;">
                     <?php echo $this->middle_sidebar; ?>
                 </div>
@@ -342,8 +304,57 @@ class page_base
         </div>
         </body>
         </html>
-        <?php
+<?php
     }
+
+    /********************************************* Fonction permettant l'affichage de la page ****************/
+
+    public function affiche() {
+
+
+    ?>
+    <!DOCCTYPE html>
+    <html lang='fr'>
+    <head>
+    <title><?php echo $this->titre; ?></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="<?php echo $this->metadescription; ?>  />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+                    <?php $this->affiche_keyword(); ?>
+					<?php $this->affiche_javascript(); ?>
+					<?php $this->affiche_style(); ?>
+</head>
+    <body>
+    <div class="global">
+
+                            <?php $this->affiche_entete(); ?>
+                            <?php $this->affiche_entete_menu(); ?>
+                            <?php $this->affiche_menu(); ?>
+                            <?php $this->affiche_menu_connexion(); ?>
+                            <?php $this->affiche_footer_menu(); ?>
+
+
+        <div style="clear:both;">
+            <div style="width:100%;">
+                <?php echo $this->global; ?>
+            </div>
+            <div style="float:left;width:75%;">
+                <?php echo $this->left_sidebar; ?>
+            </div>
+            <div style="float:left;width:25%;">
+                <?php echo $this->right_sidebar;?>
+            </div>
+        </div>
+            <div style="clear:both;">
+                <?php $this->affiche_footer(); ?>
+            </div>
+    </div>
+    </body>
+    </html>
+    <?php
+}
+                    
 }
 
 ?>
