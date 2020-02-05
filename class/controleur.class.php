@@ -299,7 +299,7 @@ class controleur {
 		$retour.="</div>";
 		return $retour;
 	}
-}
+
 
 
 	public function retourne_caroussel() {

@@ -14,9 +14,9 @@ Max container width		0px 		576px		768px		992px		1200px		1900px		3000px
 Class prefix bootstrap	.col-		.col-sm-	.col-md-	.col-lg-	.col-xl-	.col-xxl-	.col-xxxl
 */
 
-:root
-{
-	--couleurDeSection:#FFF;
+:root {
+	--couleurDeSection: #FFF;
+}
 
 /* Extra small devices (portrait phones, less than 576px) and all if not redefine*/
 .row {
@@ -119,7 +119,6 @@ section strong {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-
 	.global {
 		max-width: 1400px;
 		margin: 0 auto;

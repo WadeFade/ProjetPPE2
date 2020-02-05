@@ -4,7 +4,6 @@ class page_base
 {
     protected $right_sidebar;
     protected $left_sidebar;
-    protected $middle_sidebar;
     protected $titre;
     protected $global;
     protected $js = array('jquery-3.4.1.min', 'bootstrap.min');
@@ -58,7 +57,7 @@ class page_base
             }
             case 'global' :
             {
-                $this->global = $this->global . $valeur;
+                $this->global = $this->global.$valeur;
                 break;
             }
             case 'left_sidebar' :
@@ -66,9 +65,6 @@ class page_base
                 $this->left_sidebar = $this->left_sidebar . $valeur;
                 break;
             }
-            case 'middle_sidebar':
-                $this->middle_sidebar=$this->middle_sidebar.$valeur;
-                break;
             default:
             {
                 $trace = debug_backtrace();
@@ -266,49 +262,6 @@ class page_base
     }
 
     /********************************************* Fonction permettant l'affichage de la page ****************/
-    // todo Changer affichage, passer avec global
-    public function afficheBis()
-    {
-        ?>
-        <!DOCCTYPE html>
-        <html lang='fr'>
-        <head>
-            <a href=""></a>
-            <title><?php echo $this->titre; ?></title>
-            <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-            <meta name="description" content="<?php echo $this->metadescription; ?>"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-            <?php $this->affiche_keyword(); ?>
-            <?php $this->affiche_javascript(); ?>
-            <?php $this->affiche_style(); ?>
-            <?php $this->affiche_fontAwesome(); ?>
-            <?php $this->javascriptCollapse(); ?>
-        </head>
-        <body>
-        <div class="global">
-
-            <?php $this->affiche_entete(); ?>
-            <?php $this->affiche_entete_menu(); ?>
-            <?php $this->affiche_menu(); ?>
-            <?php $this->affiche_menu_connexion(); ?>
-            <?php $this->affiche_footer_menu(); ?>
-          <div style="clear:both;">
-                <div style="float:left;width:100%;">
-                    <?php echo $this->middle_sidebar; ?>
-                </div>
-            </div>
-            <div style="clear:both;">
-                <?php $this->affiche_footer(); ?>
-            </div>
-        </div>
-        </body>
-        </html>
-<?php
-    }
-
-    /********************************************* Fonction permettant l'affichage de la page ****************/
-
     public function affiche() {
 
 
