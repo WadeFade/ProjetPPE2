@@ -32,11 +32,14 @@
 			break;
         case 'nature':
             $site->titre='Nature';
-            $site->afficheNature();
+            $site-> middle_sidebar=$controleur->retourne_xml('https://www.sciencesetavenir.fr/nature-environnement/rss.xml');
+            $site-> middle_sidebar=$controleur->retourne_xml('https://www.lemonde.fr/planete/rss_full.xml');
+            $site->afficheBis();
             break;
         case 'galerie':
             $site->titre='Galerie';
-            $site->afficheGalerie();
+            $site-> middle_sidebar=$controleur->retourne_image();
+            $site->afficheBis();
             break;
 		case 'deconnexion' :
 			$_SESSION=array();
