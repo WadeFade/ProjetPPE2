@@ -24,9 +24,12 @@
 			$site->titre='Connexion';
 			$site->js='jquery.validate.min';
 			$site->js='messages_fr';
-			$site->js='jquery.tooltipster.min';
+			$site->js='jquery.tooltipster.bundle.min';
 			$site->js='connexion';
-			$site->css='tooltipster';
+			$site->js='all';
+			$site->css='tooltipster.bundle.min';
+			$site->css='all';
+			$site->css='tooltipster-sideTip-light.min';
 			$site-> right_sidebar=$site->rempli_right_sidebar();
 			$site-> left_sidebar=$controleur->retourne_formulaire_login();
 			$site-> left_sidebar=$controleur->retourne_modal_message();
