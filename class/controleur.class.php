@@ -144,8 +144,64 @@ class controleur {
 		</div>
 		';
 		return $retour;
-	}	
-	
-}
+	}
+	public function retourne_caroussel() {
+            $retour = '<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block" src="./image/france/IMAGES%20CAROUSSEL%20RES/chateau-de-chenonceau.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block" src="./image/france/IMAGES%20CAROUSSEL%20RES/notre-dame-de-paris-la-nuit.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block" src="./image/france/IMAGES%20CAROUSSEL%20RES/Massif-des-Ecrins.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>';
+            return $retour;
+		}
 
+		public function retourne_tableau() {
+			$retour='<table class="table table-striped table-dark" id="tableauDep">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Département</th>
+      <th scope="col">Région</th>
+     </tr>
+  </thead>';
+$result = $this->vpdo->liste_dep();
+
+if ($result != false) {
+	$retour .= '<tbody>';
+	foreach	($result as $ligne){
+			$retour .= "<tr>
+	<th scope=\"row\">$ligne[0]</th>
+	<td>$ligne[1]</td>
+	<td>$ligne[2]</td>
+	</tr>";
+			}
+	$retour .= '</tbody>';
+		}
+	$retour .= '</table>';
+return $retour;
+	}
+
+
+
+
+}
 ?>
+
+
+
+
