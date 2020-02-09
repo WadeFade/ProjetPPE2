@@ -277,17 +277,15 @@ class page_base
                     <?php $this->affiche_keyword(); ?>
 					<?php $this->affiche_javascript(); ?>
 					<?php $this->affiche_style(); ?>
+                    <?php $this->affiche_fontAwesome(); ?>
 </head>
     <body>
     <div class="global">
-
                             <?php $this->affiche_entete(); ?>
                             <?php $this->affiche_entete_menu(); ?>
                             <?php $this->affiche_menu(); ?>
                             <?php $this->affiche_menu_connexion(); ?>
                             <?php $this->affiche_footer_menu(); ?>
-
-
         <div style="clear:both;">
             <div style="width:100%;">
                 <?php echo $this->global; ?>

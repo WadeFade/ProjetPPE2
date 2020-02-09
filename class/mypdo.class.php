@@ -46,21 +46,21 @@ class mypdo extends PDO{
     }
     public function liste_dep()
     {
-    
     	$requete='SELECT departement_code, departement_nom, libel FROM departement d JOIN departement_region dr on d.departement_id=dr.code_dep JOIN region r on dr.code_reg=r.code';
-
-
-//		'SELECT departement_code,departement_nom,libel FROM departement,region,departement_region WHERE departement_id= code_dep and code_reg=code order by departement_code;'
-
-
-    	$result=$this->connexion ->query($requete);
+		$result=$this->connexion ->query($requete);
     	if ($result)
     	{
-    
     		return ($result);
     	}
     	return null;
     }
-    
+    public function liste_image_highlight(){
+		$requete='select * from highlight';
+		$result=$this->connexion ->query($requete);
+		if ($result){
+			return ($result);
+		}
+		return null;
+	}
 }
 ?>

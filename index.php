@@ -15,7 +15,6 @@
 			$site->titre='Accueil';
 			$site->js='collapse';
 			$site->global=$controleur->retourne_caroussel();
-
 			$site-> right_sidebar=$site->rempli_right_sidebar();
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
@@ -40,6 +39,8 @@
             break;
         case 'galerie':
             $site->titre='Galerie';
+            $site->js='ol';
+            $site->js='collapse';
             $site->global=$controleur->retourne_image();
             $site->affiche();
             break;
