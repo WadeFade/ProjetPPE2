@@ -24,7 +24,7 @@
 			$site->titre='Connexion';
 			$site->js='jquery.validate.min';
 			$site->js='messages_fr';
-			$site->js='jquery.tooltipster.bundle.min';
+			$site->js='tooltipster.bundle.min';
 			$site->js='connexion';
 			$site->js='all';
 			$site->css='tooltipster.bundle.min';

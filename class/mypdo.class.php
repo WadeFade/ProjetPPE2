@@ -61,6 +61,29 @@ class mypdo extends PDO{
     	}
     	return null;
     }
+
+    public function connect ($tab){
+
+    	/*
+    	 * $mp = md5($data["mp"]);
+    	$requete='SELECT login, mp, grade FROM salarie WHERE login="'.$data["id"].'" AND mp="'.$mp.'" AND grade="'.$data["categ"].'"';
+		echo $requete;
+    	*/
+
+		$requete='select * from salarie where login="'.$tab['id'].'" and mp=MD5("'.$tab['mp'].'") and grade='.$tab['categ'].';';
+
+
+		$result=$this->connexion->query($requete);
+
+
+		if ($result)
+		{
+			if ($result-> rowCount()==1) {
+				return ($result);
+			}
+		}
+		return null;
+	}
     
 }
 ?>
