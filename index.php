@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include_once('class/autoload.php');
-	$site = new page_base();
+	$site = connexsecurise();
 	$controleur=new controleur();
 	$request = strtolower($_SERVER['REQUEST_URI']);
 	$params = explode('/', trim($request, '/'));
@@ -67,4 +67,19 @@
 			$site->affiche();
 			break;
 	}
+	function connexsecurise(){
+	    if(isset($_SESSION["id"])&& isset($_SESSION["type"])){
+	        if ($_SESSION["type"]==3){
+	            $x = new page_base_journaliste();
+
+            } else {
+	            $x = new page_base();
+            }
+
+        } else {
+            $x = new page_base();
+        }
+
+	    return $x;
+    }
 ?>
