@@ -177,23 +177,6 @@ class controleur
         $i = 0;
         $retour = "<section class='d-flex flex-row flex-wrap justify-content-center'>";
         if ($result != false) {
-//            while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
-//                // parcourir chaque ligne sélectionnée
-//            {
-//                $retour = $retour . '
-//    <div class="image" onclick="ModalAjax('.$row->id.')">
-//    <div class="hovereffect d-flex flex-column">
-//    <img src="'.$path.'/image/france/IMAGES  RES/'.$row->image.'" class="img-fluid">
-//    <div class="overlay">
-//    <div class="text d-flex justify-content-center"><h5>
-//    '.$row->titre.'</h5>
-//    </div>
-//    </div>
-//    </div>
-//    </div>
-//    ;';
-//            }
-
             while ($row = $result->fetch(PDO::FETCH_OBJ)) {
                 $image[$i] = $row->image;
                 $id[$i] = $row->id;
@@ -203,16 +186,13 @@ class controleur
                 $longitude[$i] = $row->longitude;
                 $retour .= "<article class='d-flex m-3' style='width: 30%' onclick='ModalAjax($row->id);'>
 						<div class='position-relative d-flex w-100 h-100 align-items-center justify-content-end' >
-							<img class='img-fluid w-100' src='image/france/IMAGES%20%20RES/" . $image[$i] . "' alt='" . $image[$i] . "'>
+							<img class='img-fluid w-100' src='image/france/IMAGES%20%20RES/" . $row->image . "' alt='" . $row->image . "'>
 							<div class='ImageGalerie position-absolute d-flex bg-secondary w-100 h-100 text-center justify-content-center align-items-center' style='opacity: 1%' onmouseover='this.style.opacity=\"80%\"'; onmouseleave='this.style.opacity=\"0\"''>
 								<p class='d-flex text-white'>
-									" . $text[$i] . "
+									" . $row->titre . "
 								</p>
 								</div>
 								<div class=\"position-absolute w-10 h-100 d-flex flex-column justify-content-end\" style='top:0'>
-								<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModalLong" . $id[$i] . "\" id='Bouton" . $i . "'>
-									Voir plus <i class=\"fas fa-caret-right\"></i>
-								</button>
 							</div>
 						</div>
             		</article>
