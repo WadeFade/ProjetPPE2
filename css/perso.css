@@ -102,6 +102,11 @@ section strong {
 	transition: all ease .5s;
 }
 
+#map {
+	width:100%;
+	height:500px;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 

@@ -1,4 +1,5 @@
 <?php
+
 class mypdo extends PDO{
 
     private $PARAM_hote='localhost'; // le chemin vers le serveur
@@ -33,12 +34,10 @@ class mypdo extends PDO{
     
     public function liste_article($title)
     {
-    
 		$requete='select a.h3,a.corps,a.publie,a.date_deb,a.date_fin,p.h1, s.nom,s.prenom,a.date_redaction,p.title from article a,page p,salarie s where a.page=p.id and p.title="'.$title.'" and s.id=a.salarie order by num_ordre,date_deb;';
 
-    	$result=$this->connexion ->query($requete);
+		$result=$this->connexion ->query($requete);
     	if ($result)
-    
     	{
     			return ($result);
    		}
@@ -58,6 +57,26 @@ class mypdo extends PDO{
 		$requete='select * from highlight';
 		$result=$this->connexion ->query($requete);
 		if ($result){
+			return ($result);
+		}
+		return null;
+	}
+	public function liste_image_highlight_modal($id){
+		$requete='select * from highlight where id="'.$id.'"';
+		$result=$this->connexion ->query($requete);
+		if ($result){
+			return ($result);
+		}
+		return null;
+	}
+
+	public function liste_hl_via_id($id)
+	{
+		$requete='select * from highlight where id="'.$id.'";';
+		$result=$this->connexion ->query($requete);
+		if ($result)
+		{
+
 			return ($result);
 		}
 		return null;

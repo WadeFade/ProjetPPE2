@@ -41,7 +41,10 @@
             $site->titre='Galerie';
             $site->js='ol';
             $site->js='collapse';
+            $site->js='ajaxModal';
+            $site->css='ol';
             $site->global=$controleur->retourne_image();
+            $site->global=$controleur->retourne_modal_hl($site->path);
             $site->affiche();
             break;
 		case 'deconnexion' :

@@ -114,6 +114,13 @@ class page_base
         echo "<script src='https://kit.fontawesome.com/474f36629d.js' crossorigin='anonymous'></script>";
     }
 
+    /**********************************Gestion Openlayer**********************************************/
+    public function affiche_openLayer()
+    {
+    echo "<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css' type='text/css'>";
+    echo " <script src=\"https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js\"></script>";
+    }
+
     /******************************Gestion du fontawesome*******************************************/
     /* Insertion de collapse */
     public function javascriptCollapse()
@@ -278,6 +285,7 @@ class page_base
 					<?php $this->affiche_javascript(); ?>
 					<?php $this->affiche_style(); ?>
                     <?php $this->affiche_fontAwesome(); ?>
+                    <?php $this->affiche_openLayer(); ?>
 </head>
     <body>
     <div class="global">
