@@ -61,6 +61,7 @@ class mypdo extends PDO{
 		}
 		return null;
 	}
+
 	public function liste_image_highlight_modal($id){
 		$requete='select * from highlight where id="'.$id.'"';
 		$result=$this->connexion ->query($requete);
